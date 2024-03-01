@@ -1,0 +1,25 @@
+name: Workflow Sample
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  setup:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    outputs:
+      NAME: ${{ steps.echo-out.outputs.NAME }}
+    steps:
+      - uses: actions/checkout@v3
+      - id: echo-out
+        run: echo "NAME=foo" >> $GITHUB_ENV
+
+  use-custom-action:
+    needs: setup
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: ./.githib/actions/action-sample
+        with:
+          your-name: ${{ needs.setup.outputs.NAME }}

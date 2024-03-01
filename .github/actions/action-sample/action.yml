@@ -1,0 +1,16 @@
+name: Action Sample
+
+inputs:
+  your-name:
+    description: sample input
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@3
+      with:
+        node-version: 18
+    - env:
+        YOUR_NAME: ${{ inputs.your-name }}
+      run: echo "Hello, ${YOUR_NAME}!"

@@ -1,16 +1,19 @@
 name: Action Sample
+description: aaa
 
 inputs:
   your-name:
     description: sample input
     required: true
+    type: string
 
 runs:
   using: composite
   steps:
-    - uses: actions/setup-node@3
-      with:
-        node-version: 18
-    - env:
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: echo
+      shell: bash
+      env:
         YOUR_NAME: ${{ inputs.your-name }}
       run: echo "Hello, ${YOUR_NAME}!"

@@ -1,0 +1,21 @@
+# https://docs.github.com/ja/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
+
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#directory
+    directory: "/"
+    # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#scheduleinterval
+    schedule:
+      interval: "daily"
+      # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#scheduletime
+      time: "01:57"
+      # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#scheduletimezone
+      timezone: "Asia/Tokyo"
+    # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups
+    groups:
+      all-actions:
+        patterns: [ "*" ] # 複数のactionに新バージョンが湧いてきた場合、1つのPRで全部更新してくれる
+    # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#reviewers
+    reviewers:
+      - "guricerin"

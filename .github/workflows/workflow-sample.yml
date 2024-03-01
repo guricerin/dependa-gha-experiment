@@ -11,15 +11,24 @@ jobs:
     outputs:
       NAME: ${{ steps.echo-out.outputs.NAME }}
     steps:
-      - uses: actions/checkout@v3
-      - id: echo-out
-        run: echo "NAME=foo" >> $GITHUB_ENV
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: echo out
+        id: echo-out
+        run: echo "NAME=foo" >> $GITHUB_OUTPUT
 
   use-custom-action:
     needs: setup
     runs-on: ubuntu-22.04
     timeout-minutes: 5
     steps:
-      - uses: ./.githib/actions/action-sample
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: run
+        uses: ./.github/actions/action-sample
         with:
           your-name: ${{ needs.setup.outputs.NAME }}

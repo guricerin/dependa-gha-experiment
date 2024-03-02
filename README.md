@@ -12,6 +12,6 @@ https://docs.github.com/ja/code-security/dependabot/dependabot-version-updates/a
 
 ## 結果
 
-公式ドキュメントの通り、`.github/workflows` 直下しか見ませんでした。  
+公式ドキュメントの通り、`.github/workflows` 直下しか見ませんでした。悲C。  
 
 - https://github.com/guricerin/dependa-gha-experiment/pull/1

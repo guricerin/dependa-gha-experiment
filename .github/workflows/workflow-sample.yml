@@ -12,9 +12,9 @@ jobs:
       NAME: ${{ steps.echo-out.outputs.NAME }}
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
       - name: echo out
@@ -27,7 +27,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: run
         uses: ./.github/actions/action-sample
         with:
